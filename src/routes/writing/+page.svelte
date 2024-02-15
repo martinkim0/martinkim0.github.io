@@ -5,16 +5,11 @@
 </script>
 
 <Seo
-  title="Eric Zhang – Writing"
-  description="Past writing: academic papers, presentations, notes, tutorials, and technical blog posts."
+  title="Martin Kim – Writing"
+  description="Description here."
 />
 
 <section class="layout-md py-12">
-  <h2 class="heading2">Notes and Tutorials</h2>
+  <h2 class="heading2">Papers</h2>
   <WritingList data={writing.notes} />
-</section>
-
-<section class="layout-md py-12">
-  <h2 class="heading2">Academic Writing</h2>
-  <WritingList data={writing.papers} />
 </section>
