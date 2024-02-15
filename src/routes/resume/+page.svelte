@@ -3,7 +3,4 @@
   import Workplace from "./Workplace.svelte";
 </script>
 
-<Seo
-  title="Martin Kim – Resume"
-  description="Description here."
-/>
+<Seo title="Martin Kim – Resume" description="Description here." />
