@@ -1,59 +1,60 @@
-<script lang="ts">
-  import "@fontsource/newsreader/400-italic.css";
-  import "../app.css";
+<script>
+  import '../app.css'
+  import '../prism.css'
+  import MoonIcon from 'heroicons-svelte/solid/MoonIcon.svelte'
+  import SunIcon from 'heroicons-svelte/solid/SunIcon.svelte'
+  import { browser } from '$app/environment'
+  import { name } from '$lib/info'
+  import { page } from '$app/stores'
 
-  import { browser, dev } from "$app/environment";
+  let isDarkMode = browser ? Boolean(document.documentElement.classList.contains('dark')) : true
 
-  import { fly } from "svelte/transition";
-
-  import Header from "$lib/components/Header.svelte";
-  import Footer from "$lib/components/Footer.svelte";
-  import type { LayoutData } from "./$types";
-
-  export let data: LayoutData;
-
-  const isMobile = browser && /Android|iPhone/i.test(navigator.userAgent);
-  const reducedMotion =
-    browser && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function disableTransitionsTemporarily() {
+    document.documentElement.classList.add('[&_*]:!transition-none')
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('[&_*]:!transition-none')
+    }, 0)
+  }
 </script>
 
-<svelte:head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  {#if !dev}
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-156644599-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "UA-156644599-1");
-    </script>
-  {/if}
-</svelte:head>
+<div class="flex flex-col min-h-screen ">
+  <div class="flex flex-col flex-grow w-full px-4 py-2">
+    <header class="flex items-center justify-between w-full max-w-2xl py-4 mx-auto lg:pb-8">
+      <a
+        class="text-lg font-bold sm:text-2xl !text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-600 dark:to-teal-400"
+        href="/"
+      >
+        {name}
+      </a>
 
-<Header />
+      <button
+        type="button"
+        role="switch"
+        aria-label="Toggle Dark Mode"
+        aria-checked={isDarkMode}
+        class="w-5 h-5 sm:h-8 sm:w-8 sm:p-1"
+        on:click={() => {
+          isDarkMode = !isDarkMode
+          localStorage.setItem('isDarkMode', isDarkMode.toString())
 
-{#if isMobile || reducedMotion}
-  <!--
-    Disable page transitions on mobile due to a browser engine bug.
-    Also disable them for reduced-motion users.
-  -->
-  <main>
-    <slot />
-  </main>
-{:else}
-  {#key data.pathname}
+          disableTransitionsTemporarily()
+
+          if (isDarkMode) {
+            document.querySelector('html').classList.add('dark')
+          } else {
+            document.querySelector('html').classList.remove('dark')
+          }
+        }}
+      >
+        <MoonIcon class="hidden text-zinc-500 dark:block" />
+        <SunIcon class="block text-zinc-400 dark:hidden" />
+      </button>
+    </header>
     <main
-      in:fly={{ x: -10, duration: 350, delay: 350 }}
-      out:fly={{ y: 5, duration: 350 }}
+      class="flex flex-col flex-grow w-full mx-auto"
+      class:max-w-2xl={!$page.data.layout?.fullWidth}
     >
       <slot />
     </main>
-  {/key}
-{/if}
-
-<Footer />
+  </div>
+</div>

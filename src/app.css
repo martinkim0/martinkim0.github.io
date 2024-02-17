@@ -1,41 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import './prism.css';
+@import 'tailwindcss/utilities';
 
 @layer base {
+  body {
+    @apply text-zinc-600 dark:text-zinc-400;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-zinc-900 dark:text-zinc-200;
+  }
+
   hr {
-    @apply border-neutral-200;
+    @apply border-zinc-100 dark:border-zinc-700/25;
   }
-}
-
-@layer components {
-  .link {
-    @apply underline underline-offset-[3px] decoration-neutral-400 dark:decoration-neutral-500;
-    @apply hover:text-black hover:decoration-black transition-colors;
-    @apply dark:hover:text-white dark:hover:decoration-white;
-  }
-
-  .layout-md {
-    @apply max-w-screen-md mx-auto px-4 sm:px-6;
-  }
-
-  .heading2 {
-    @apply text-black text-xl font-semibold mb-4;
-  }
-}
-
-html {
-  @apply motion-safe:scroll-smooth;
-}
-
-body {
-  @apply /* antialiased */ py-12 sm:py-24 md:py-32 text-neutral-700;
-}
-
-::selection {
-  @apply bg-neutral-200 dark:bg-neutral-600;
-}
-
-.dark {
-  color-scheme: dark;
 }
