@@ -3,10 +3,10 @@
 // feel free to remove this file.
 
 // URL of your website
-export const website = 'https://sveltekit-blog-template.vercel.app'
+export const website = 'https://www.martinkim.me'
 
-export const firstName = 'Jordan'
-export const lastName = 'Doe'
+export const firstName = 'Martin'
+export const lastName = 'Kim'
 export const name = `${firstName} ${lastName}`
 
 // Used for the landing page & footer of posts
@@ -21,7 +21,7 @@ vehicula sapien vitae sagittis.
 // Your social usernames, empty strings won't be used.
 // For sake of the live demo, I'm using `username/repo` for github,
 // but you can replace with just your username.
-export const github = 'mattjennings/sveltekit-blog-template'
+export const github = 'martinkim0/martinkim0.github.io'
 export const twitter = ''
 export const linkedin = ''
 export const instagram = ''
