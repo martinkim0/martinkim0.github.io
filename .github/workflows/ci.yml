@@ -18,7 +18,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm buiid
+      - run: pnpm run buiid
 
       - uses: JamesIves/github-pages-deploy-action@4.1.8
         with:
