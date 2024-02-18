@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@sveltejs/adapter-auto': ^2.1.0
+  '@sveltejs/adapter-static': ^2.0.1
   '@sveltejs/kit': ^1.22.3
   '@tailwindcss/typography': ^0.5.7
   '@vcarl/remark-headings': ^0.0.1
@@ -41,7 +41,7 @@ dependencies:
   reading-time-estimator: 1.5.3
 
 devDependencies:
-  '@sveltejs/adapter-auto': 2.1.0_@sveltejs+kit@1.22.3
+  '@sveltejs/adapter-static': ^2.0.1
   '@sveltejs/kit': 1.22.3_svelte@3.54.0+vite@4.0.0
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.1.8
   '@vcarl/remark-headings': 0.0.1
@@ -445,13 +445,13 @@ packages:
       }
     dev: true
 
-  /@sveltejs/adapter-auto/2.1.0_@sveltejs+kit@1.22.3:
+  /@sveltejs/adapter-static/2.0.1:
     resolution:
       {
-        integrity: sha512-o2pZCfATFtA/Gw/BB0Xm7k4EYaekXxaPGER3xGSY3FvzFJGTlJlZjBseaXwYSM94lZ0HniOjTokN3cWaLX6fow==
+        integrity: sha512-o5/q3YwD/ErxYCFlK1v3ydvldyNKk1lh3oeyxn4mhz+Pkbx/uuxhzmbOpytTlp5aVqNHDVsb04xadUzOFCDDzw==
       }
     peerDependencies:
-      '@sveltejs/kit': ^1.0.0
+      '@sveltejs/kit': ^1.4.0
     dependencies:
       '@sveltejs/kit': 1.22.3_svelte@3.54.0+vite@4.0.0
       import-meta-resolve: 3.0.0
