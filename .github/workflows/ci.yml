@@ -12,17 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2
+      - uses: pnpm/action-setup@v3
         with:
-          node-version: '18'
+          version: 8
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
-      - run: npm run check
+      - run: pnpm check
 
-      - run: npm run lint
+      - run: pnpm lint
 
-      - run: npm run build
+      - run: pnpm buiid
 
       - uses: JamesIves/github-pages-deploy-action@4.1.8
         with:
