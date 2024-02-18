@@ -5,7 +5,7 @@
 import { posts } from '$lib/data/posts'
 import { website } from '$lib/info'
 
-export const prerender = true
+export const prerender = 'auto'
 
 // make sure this matches your post route
 const getPostUrl = (slug) => `${website}/post/${slug}`
