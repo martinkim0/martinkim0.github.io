@@ -1,0 +1,31 @@
+:root {
+  // Colors — Forest Terminal palette
+  --bg-primary: #0c0f0c;
+  --bg-sidebar: #101410;
+  --bg-surface: #1a1f1a;
+  --text-primary: #e2e8e0;
+  --text-secondary: #7a8a79;
+  --accent: #5b9a6a;
+  --accent-hover: #6fb87e;
+  --accent-muted: #3d6b48;
+  --border: #1e2a1e;
+
+  // Typography
+  --font-display: 'DM Sans', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  // Spacing
+  --sidebar-width: 260px;
+  --content-max-width: 680px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+
+  // Transitions
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar__inner">
+      <h1 class="sidebar__name">Martin Kim</h1>
+      <div class="sidebar__logo">
+        <img src="{{ '/assets/images/logo-placeholder.svg' | relative_url }}" alt="MK" width="80" height="80">
+      </div>
+      <nav class="sidebar__nav">
+        {% assign nav_items = "About|/,Blog|https://substack.com/@martinkim0,Photography|https://flickr.com/photos/martinkim0,Misc|/misc/" %}
+        {% assign items = nav_items | split: "," %}
+        {% for item in items %}
+          {% assign parts = item | split: "|" %}
+          {% assign label = parts[0] %}
+          {% assign url = parts[1] %}
+          {% assign is_external = false %}
+          {% if url contains "http" %}
+            {% assign is_external = true %}
+          {% endif %}
+          {% assign is_active = false %}
+          {% if url == page.url or url == page.permalink %}
+            {% assign is_active = true %}
+          {% endif %}
+          {% if url == "/" and page.url == "/index.html" %}
+            {% assign is_active = true %}
+          {% endif %}
+          <a href="{% if is_external %}{{ url }}{% else %}{{ url | relative_url }}{% endif %}"
+             class="sidebar__link{% if is_active %} sidebar__link--active{% endif %}"
+             {% if is_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+            {{ label }}{% if is_external %}<span class="external-arrow" aria-hidden="true"> ↗</span>{% endif %}
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+  </aside>
+  <main class="content">
+    <div class="content__inner">
+      {{ content }}
+    </div>
+  </main>
+</body>
+</html>

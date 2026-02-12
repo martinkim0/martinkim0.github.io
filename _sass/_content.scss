@@ -1,0 +1,114 @@
+.content {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  min-height: 100vh;
+  animation: fadeIn var(--transition-slow) ease both;
+  animation-delay: 500ms;
+
+  &__inner {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-xl);
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+  }
+
+  p {
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+  }
+
+  ul, ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+    color: var(--text-primary);
+
+    li {
+      margin-bottom: var(--space-xs);
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid var(--accent-muted);
+    padding-left: var(--space-md);
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background-color: var(--bg-surface);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+  }
+
+  pre {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    overflow-x: auto;
+
+    code {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: var(--space-xl) 0;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-muted);
+    text-underline-offset: 2px;
+    transition: text-decoration-color var(--transition-fast), color var(--transition-fast);
+
+    &:hover {
+      color: var(--accent-hover);
+      text-decoration-color: var(--accent-hover);
+    }
+  }
+}
+
+// Mobile: remove sidebar offset
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+
+    &__inner {
+      padding: var(--space-xl) var(--space-lg);
+    }
+  }
+
+  body {
+    flex-direction: column;
+  }
+}
