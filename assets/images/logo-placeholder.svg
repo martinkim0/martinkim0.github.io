@@ -1,6 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-  <circle cx="40" cy="40" r="38" fill="#101410" stroke="#5b9a6a" stroke-width="2"/>
-  <text x="40" y="44" text-anchor="middle" dominant-baseline="central"
-        font-family="'DM Sans', sans-serif" font-weight="700" font-size="22" fill="#e2e8e0"
-        letter-spacing="1">MK</text>
+  <defs>
+    <radialGradient id="eyeGrad" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#b0b0b0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Soot sprite body — jagged spiky silhouette -->
+  <g transform="translate(40,42)">
+    <path d="
+      M0,-30 L2,-21 L7,-32 L9,-20 L14,-29 L13,-17
+      L21,-26 L17,-14 L25,-19 L20,-10 L29,-13 L22,-5
+      L30,-3 L22,1 L29,7 L21,5 L27,13 L19,9
+      L22,18 L15,12 L17,21 L11,14 L12,23 L7,16
+      L5,25 L2,16 L0,24 L-2,16 L-5,25 L-7,16
+      L-12,23 L-11,14 L-17,21 L-15,12 L-22,18 L-19,9
+      L-27,13 L-21,5 L-29,7 L-22,1 L-30,-3 L-22,-5
+      L-29,-13 L-20,-10 L-25,-19 L-17,-14 L-21,-26 L-13,-17
+      L-14,-29 L-9,-20 L-7,-32 L-2,-21 Z"
+      fill="#1e1e1e"/>
+
+    <!-- Inner body -->
+    <circle cx="0" cy="0" r="18" fill="#1e1e1e"/>
+
+    <!-- Eyes — large with gradient -->
+    <circle cx="-8.5" cy="1" r="8.5" fill="url(#eyeGrad)"/>
+    <circle cx="8.5" cy="1" r="8.5" fill="url(#eyeGrad)"/>
+    <!-- Pupils — near bottom -->
+    <circle cx="-6.5" cy="4" r="3.2" fill="#1e1e1e"/>
+    <circle cx="10.5" cy="4" r="3.2" fill="#1e1e1e"/>
+    <!-- Eye shine -->
+    <circle cx="-10" cy="-2" r="1.8" fill="#fff"/>
+    <circle cx="7" cy="-2" r="1.8" fill="#fff"/>
+  </g>
+
+  <!-- Konpeito — green (right, overlapping body edge) -->
+  <g transform="translate(61,17)">
+    <circle cx="0" cy="0" r="4" fill="#5b9a6a"/>
+    <circle cx="0" cy="-4" r="1.8" fill="#5b9a6a"/>
+    <circle cx="3.8" cy="-1.2" r="1.8" fill="#5b9a6a"/>
+    <circle cx="2.4" cy="3.2" r="1.8" fill="#5b9a6a"/>
+    <circle cx="-2.4" cy="3.2" r="1.8" fill="#5b9a6a"/>
+    <circle cx="-3.8" cy="-1.2" r="1.8" fill="#5b9a6a"/>
+    <circle cx="0" cy="0" r="1.2" fill="#7bc08a" opacity="0.5"/>
+  </g>
+
+  <!-- Konpeito — pink (left, overlapping body edge) -->
+  <g transform="translate(16,20)">
+    <circle cx="0" cy="0" r="3.5" fill="#d4788c"/>
+    <circle cx="0" cy="-3.5" r="1.6" fill="#d4788c"/>
+    <circle cx="3.3" cy="-1.1" r="1.6" fill="#d4788c"/>
+    <circle cx="2.1" cy="2.8" r="1.6" fill="#d4788c"/>
+    <circle cx="-2.1" cy="2.8" r="1.6" fill="#d4788c"/>
+    <circle cx="-3.3" cy="-1.1" r="1.6" fill="#d4788c"/>
+    <circle cx="0" cy="0" r="1" fill="#e8a0b0" opacity="0.5"/>
+  </g>
 </svg>
