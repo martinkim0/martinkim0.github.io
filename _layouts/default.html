@@ -11,43 +11,47 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="sidebar__inner">
-      <h1 class="sidebar__name">Martin Kim</h1>
-      <div class="sidebar__logo">
-        <img src="{{ '/assets/images/logo-placeholder.svg' | relative_url }}" alt="MK" width="80" height="80">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar__inner">
+        <a href="{{ '/' | relative_url }}" class="sidebar__logo">
+          <img src="{{ '/assets/images/logo-placeholder.svg' | relative_url }}" alt="MK" width="48" height="48">
+        </a>
+        <nav class="sidebar__nav">
+          {% assign nav_items = "About|/,Blog|https://substack.com/@martinkim0,Photography|https://flickr.com/photos/martinkim0,Misc|/misc/" %}
+          {% assign items = nav_items | split: "," %}
+          {% for item in items %}
+            {% assign parts = item | split: "|" %}
+            {% assign label = parts[0] %}
+            {% assign url = parts[1] %}
+            {% assign is_external = false %}
+            {% if url contains "http" %}
+              {% assign is_external = true %}
+            {% endif %}
+            {% assign is_active = false %}
+            {% if url == page.url or url == page.permalink %}
+              {% assign is_active = true %}
+            {% endif %}
+            {% if url == "/" and page.url == "/index.html" %}
+              {% assign is_active = true %}
+            {% endif %}
+            <a href="{% if is_external %}{{ url }}{% else %}{{ url | relative_url }}{% endif %}"
+               class="sidebar__link{% if is_active %} sidebar__link--active{% endif %}"
+               {% if is_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+              {{ label }}{% if is_external %}<span class="external-arrow" aria-hidden="true"> ↗</span>{% endif %}
+            </a>
+          {% endfor %}
+        </nav>
       </div>
-      <nav class="sidebar__nav">
-        {% assign nav_items = "About|/,Blog|https://substack.com/@martinkim0,Photography|https://flickr.com/photos/martinkim0,Misc|/misc/" %}
-        {% assign items = nav_items | split: "," %}
-        {% for item in items %}
-          {% assign parts = item | split: "|" %}
-          {% assign label = parts[0] %}
-          {% assign url = parts[1] %}
-          {% assign is_external = false %}
-          {% if url contains "http" %}
-            {% assign is_external = true %}
-          {% endif %}
-          {% assign is_active = false %}
-          {% if url == page.url or url == page.permalink %}
-            {% assign is_active = true %}
-          {% endif %}
-          {% if url == "/" and page.url == "/index.html" %}
-            {% assign is_active = true %}
-          {% endif %}
-          <a href="{% if is_external %}{{ url }}{% else %}{{ url | relative_url }}{% endif %}"
-             class="sidebar__link{% if is_active %} sidebar__link--active{% endif %}"
-             {% if is_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
-            {{ label }}{% if is_external %}<span class="external-arrow" aria-hidden="true"> ↗</span>{% endif %}
-          </a>
-        {% endfor %}
-      </nav>
-    </div>
-  </aside>
-  <main class="content">
-    <div class="content__inner">
-      {{ content }}
-    </div>
-  </main>
+    </aside>
+    <main class="content">
+      <header class="content__header">
+        <h1 class="content__name">Martin Kim</h1>
+      </header>
+      <div class="content__inner">
+        {{ content }}
+      </div>
+    </main>
+  </div>
 </body>
 </html>
