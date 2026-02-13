@@ -19,7 +19,7 @@
           <img src="{{ '/assets/images/logo-placeholder.svg' | relative_url }}" alt="MK" width="60" height="60">
         </a>
         <nav class="sidebar__nav">
-          {% assign nav_items = "About|/,CV|/assets/docs/martin-kim-cv.pdf,Blog|https://martinkim0.substack.com,Photography|https://flickr.com/photos/martinkim0,Misc|/misc/" %}
+          {% assign nav_items = "About|/,CV|/assets/docs/martin-kim-cv.pdf,Blog|https://metatruths.substack.com,Photography|https://flickr.com/photos/martinkim0,Misc|/misc/" %}
           {% assign items = nav_items | split: "," %}
           {% for item in items %}
             {% assign parts = item | split: "|" %}
