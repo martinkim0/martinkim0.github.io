@@ -4,4 +4,4 @@ title: Misc
 permalink: /misc/
 ---
 
-A collection of miscellaneous things.
+Miscellaneous! Work-in-progress

@@ -4,8 +4,14 @@ title: About
 permalink: /
 ---
 
-Welcome. I'm Martin Kim.
+I'm a software engineer at [insitro](https://www.insitro.com/) where I work on the microscopy
+imaging platform. 
 
-This is my corner of the internet — a place for thoughts, projects, and things I find interesting.
+Previously, I was at Nir Yosef's lab at UC Berkeley where I worked as a research engineer
+developing [scvi-tools](https://scvi-tools.org/), an open-source Python package used for deep
+probabilistic analysis of singe-cell and spatial omics data, among other projects.
 
-More to come.
+Prior to this, I was briefly at Genentech Research and Early Development (gRED), where I got to
+work with scientists to develop internal tools for searching and analyzing single-cell omics data.
+I received by B.S. in Electrical Engineering & Computer Science and Bioengineering from UC 
+Berkeley.
