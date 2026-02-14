@@ -29,3 +29,17 @@
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: #f5f2ed;
+    --bg-sidebar: #eae6e0;
+    --bg-surface: #e0dbd4;
+    --text-primary: #2c2c2c;
+    --text-secondary: #6b6560;
+    --accent: #3d7a4a;
+    --accent-hover: #2e6b3a;
+    --accent-muted: #a8c5ae;
+    --border: #d5d0ca;
+  }
+}

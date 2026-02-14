@@ -36,6 +36,12 @@ body::after {
   background-size: 256px 256px;
 }
 
+@media (prefers-color-scheme: light) {
+  body::after {
+    opacity: 0.015;
+  }
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
